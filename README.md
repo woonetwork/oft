@@ -1,2 +1,2 @@
 # OFT
-OFT of WOO token by LayerZeroV2
+OFT of WOO token with LayerZeroV2
