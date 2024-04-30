@@ -44,14 +44,9 @@ const config: HardhatUserConfig = {
         ],
     },
     networks: {
-        // ethereum: {
-        //     eid: EndpointId.ETHEREUM_V2_MAINNET,
-        //     url: `https://rpc.ankr.com/eth`,
-        //     accounts: [`${ACCOUNT_PRIVATE_KEY}`],
-        // },
-        arbitrum: {
-            eid: EndpointId.ARBITRUM_V2_MAINNET,
-            url: `https://arb1.arbitrum.io/rpc`,
+        ethereum: {
+            eid: EndpointId.ETHEREUM_V2_MAINNET,
+            url: `https://rpc.ankr.com/eth`,
             accounts,
         },
         merlin: {
