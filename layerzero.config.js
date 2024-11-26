@@ -49,7 +49,7 @@ module.exports = {
                 },
                 receiveConfig: {
                     ulnConfig: {
-                        confirmations: BigInt(15),
+                        confirmations: BigInt(1200),
                         requiredDVNs: ['0x589dEDbD617e0CBcB916A9223F4d1300c294236b'],
                         optionalDVNs: [],
                         optionalDVNThreshold: 0,
@@ -75,7 +75,7 @@ module.exports = {
                         executor: '0x0000000000000000000000000000000000000000',
                     },
                     ulnConfig: {
-                        confirmations: BigInt(15),
+                        confirmations: BigInt(1200),
                         requiredDVNs: ['0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842'],
                         optionalDVNs: [],
                         optionalDVNThreshold: 0,
