@@ -1,9 +1,19 @@
-require('dotenv').config()
+// Get the environment configuration from .env file
+//
+// To make use of automatic environment setup:
+// - Duplicate .env.example file and name it .env
+// - Fill in the environment variables
+import 'dotenv/config'
 
 import 'hardhat-deploy'
+import '@nomicfoundation/hardhat-ethers'
+import '@nomiclabs/hardhat-waffle'
+import 'hardhat-deploy-ethers'
 import 'hardhat-contract-sizer'
 import '@nomiclabs/hardhat-ethers'
 import '@layerzerolabs/toolbox-hardhat'
+import './tasks'
+
 import { HardhatUserConfig, HttpNetworkAccountsUserConfig } from 'hardhat/types'
 
 import { EndpointId } from '@layerzerolabs/lz-definitions'
@@ -20,16 +30,20 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY
 const accounts: HttpNetworkAccountsUserConfig | undefined = MNEMONIC
     ? { mnemonic: MNEMONIC }
     : PRIVATE_KEY
-        ? [PRIVATE_KEY]
-        : undefined
+      ? [PRIVATE_KEY]
+      : undefined
 
 if (accounts == null) {
     console.warn(
-        'Could not find MNEMONIC or PRIVATE_KEY environment variables.'
+        'Could not find MNEMONIC or PRIVATE_KEY environment variables. It will not be possible to execute transactions in your example.'
     )
 }
 
 const config: HardhatUserConfig = {
+    paths: {
+        cache: 'cache/hardhat',
+        tests: 'test/hardhat',
+    },
     solidity: {
         compilers: [
             {
@@ -44,14 +58,9 @@ const config: HardhatUserConfig = {
         ],
     },
     networks: {
-        ethereum: {
-            eid: EndpointId.ETHEREUM_V2_MAINNET,
-            url: `https://rpc.ankr.com/eth`,
-            accounts,
-        },
-        merlin: {
-            eid: EndpointId.MERLIN_V2_MAINNET,
-            url: `https://rpc.merlinchain.io`,
+        sepolia: {
+            eid: EndpointId.SEPOLIA_V2_TESTNET,
+            url: `https://ethereum-sepolia-rpc.publicnode.com`,
             accounts,
         },
     },
@@ -59,7 +68,7 @@ const config: HardhatUserConfig = {
         deployer: {
             default: 0, // wallet address of index[0], of the mnemonic in .env
         },
-    }
+    },
 }
 
 export default config

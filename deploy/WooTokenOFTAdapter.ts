@@ -3,8 +3,9 @@ import assert from 'assert'
 import { type DeployFunction } from 'hardhat-deploy/types'
 
 const contractName = 'WooTokenOFTAdapter'
-const wooTokenOnETH = '0x4691937a7508860F876c9c0a2a617E7d9E945D4B' // WOO token address on ETH mainnet
+// const wooTokenOnETH = '0x4691937a7508860F876c9c0a2a617E7d9E945D4B' // WOO token address on ETH mainnet
 // const wooTokenOnArbitrum = '0xcAFcD85D8ca7Ad1e1C6F82F651fA15E33AEfD07b' // WOO token address on Arbitrum
+const wooTokenOnSepolia = '0xDd481A5FBa15E777fd73493E505C057fe16b0955' // WOO token address on Sepolia
 
 const deployOFTAdapter: DeployFunction = async (hre) => {
     const { getNamedAccounts, deployments } = hre
@@ -46,7 +47,7 @@ const deployOFTAdapter: DeployFunction = async (hre) => {
     const { address } = await deploy(contractName, {
         from: deployer,
         args: [
-            wooTokenOnETH, // original token for OFT
+            wooTokenOnSepolia, // original token for OFT
             endpointV2Deployment.address, // LayerZero's EndpointV2 address
             deployer, // owner
         ],
