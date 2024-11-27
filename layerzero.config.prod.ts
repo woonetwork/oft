@@ -15,7 +15,7 @@ const merlinContract = {
 
 const solanaContract: OmniPointHardhat = {
     eid: EndpointId.SOLANA_V2_MAINNET,
-    address: '', // TODO update this with the OFTStore address.
+    address: '8wX49KNNCPqfMUb8F1x3XipDEfqZnsCP5dDqxaxHjLCw',
 }
 
 const config: OAppOmniGraphHardhat = {
@@ -197,7 +197,7 @@ const config: OAppOmniGraphHardhat = {
                     executorConfig: {
                         maxMessageSize: 10000,
                         // The configured Executor address.  Note, this is the executor PDA not the program ID.
-                        executor: '6doghB248px58JSSwG4qejQ46kFMW4AMj7vzJnWZHNZn',
+                        executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
                         // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
