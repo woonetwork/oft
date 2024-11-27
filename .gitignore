@@ -1,7 +1,9 @@
+.anchor
 node_modules
 .env
 coverage
 coverage.json
+target
 typechain
 typechain-types
 
@@ -9,8 +11,16 @@ typechain-types
 cache
 artifacts
 
-#foundry test compilation files
+
+# LayerZero specific files
+.layerzero
+
+# foundry test compilation files
 out
 
 # pnpm
 pnpm-error.log
+
+# Editor and OS files
+.DS_Store
+.idea

@@ -1,7 +1,10 @@
+.anchor
+.turbo
+node_modules/
+target
 artifacts/
 cache/
 dist/
-node_modules/
 out/
 *.log
 *ignore
