@@ -137,7 +137,7 @@ const config: OAppOmniGraphHardhat = {
                 receiveConfig: {
                     ulnConfig: {
                         // The number of block confirmations to expect from the `to` chain.
-                        confirmations: BigInt(32),
+                        confirmations: BigInt(120),
                         // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
                         // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
@@ -201,7 +201,7 @@ const config: OAppOmniGraphHardhat = {
                     },
                     ulnConfig: {
                         // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
-                        confirmations: BigInt(32),
+                        confirmations: BigInt(120),
                         // The address of the DVNs you will pay to verify a sent message on the source chain ).
                         // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
