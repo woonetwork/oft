@@ -33,7 +33,8 @@ const action: ActionType<TaskArguments> = async ({ dstEid, amount, to }, hre: Ha
     const amountLD = BigNumber.from(amount)
     const sendParam = {
         dstEid,
-        to: makeBytes32(bs58.decode(to)),
+        //to: makeBytes32(bs58.decode(to)), // to solana address
+        to: makeBytes32(to), // to evm address
         amountLD: amountLD.toString(),
         minAmountLD: amountLD.mul(9_000).div(10_000).toString(),
         extraOptions: '0x',

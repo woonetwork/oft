@@ -63,6 +63,11 @@ const config: HardhatUserConfig = {
             url: `https://ethereum-sepolia-rpc.publicnode.com`,
             accounts,
         },
+        linea_sepolia: {
+            eid: EndpointId.LINEASEP_V2_TESTNET,
+            url: `https://rpc.goerli.linea.build`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
