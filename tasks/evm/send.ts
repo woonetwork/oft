@@ -22,7 +22,7 @@ const action: ActionType<TaskArguments> = async ({ dstEid, amount, to }, hre: Ha
 
     if (hre.network.name == 'sepolia') {
         const IERC20 = '@openzeppelin/contracts/token/ERC20/IERC20.sol:IERC20'
-        const tokenAddress = '0xDd481A5FBa15E777fd73493E505C057fe16b0955'
+        const tokenAddress = '0xc9fa9efa738AFd3504cB59547114F0847C44A8fa'
         // @ts-ignore
         const erc20Token = (await hre.ethers.getContractAt(IERC20, tokenAddress)).connect(signer)
         const approvalTxResponse = await erc20Token.approve(token.address, amount)
@@ -33,7 +33,8 @@ const action: ActionType<TaskArguments> = async ({ dstEid, amount, to }, hre: Ha
     const amountLD = BigNumber.from(amount)
     const sendParam = {
         dstEid,
-        to: makeBytes32(bs58.decode(to)),
+        //to: makeBytes32(bs58.decode(to)), // to solana address
+        to: makeBytes32(to), // to evm address
         amountLD: amountLD.toString(),
         minAmountLD: amountLD.mul(9_000).div(10_000).toString(),
         extraOptions: '0x',

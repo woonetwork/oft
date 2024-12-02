@@ -63,9 +63,9 @@ const config: HardhatUserConfig = {
             url: `https://rpc.ankr.com/eth`,
             accounts,
         },
-        merlin: {
-            eid: EndpointId.MERLIN_V2_MAINNET,
-            url: `https://rpc.merlinchain.io`,
+        linea: {
+            eid: EndpointId.ZKCONSENSYS_V2_MAINNET,
+            url: `https://rpc.linea.build`,
             accounts,
         },
     },
