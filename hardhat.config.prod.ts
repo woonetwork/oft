@@ -68,6 +68,11 @@ const config: HardhatUserConfig = {
             url: `https://rpc.merlinchain.io`,
             accounts,
         },
+        linea: {
+            eid: EndpointId.ZKCONSENSYS_V2_MAINNET,
+            url: `https://rpc.linea.build`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
