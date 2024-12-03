@@ -73,6 +73,11 @@ const config: HardhatUserConfig = {
             url: `https://rpc.linea.build`,
             accounts,
         },
+        base: {
+            eid: EndpointId.BASE_V2_MAINNET,
+            url: `https://mainnet.base.org`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
