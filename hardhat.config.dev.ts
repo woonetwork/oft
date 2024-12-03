@@ -68,6 +68,11 @@ const config: HardhatUserConfig = {
             url: `https://rpc.goerli.linea.build`,
             accounts,
         },
+        base_sepolia: {
+            eid: EndpointId.BASESEP_V2_TESTNET,
+            url: `https://sepolia.base.org`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
