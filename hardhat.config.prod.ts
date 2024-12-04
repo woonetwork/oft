@@ -78,6 +78,11 @@ const config: HardhatUserConfig = {
             url: `https://mainnet.base.org`,
             accounts,
         },
+        zksync: {
+            eid: EndpointId.ZKSYNC_V2_MAINNET,
+            url: `https://mainnet.era.zksync.io`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
