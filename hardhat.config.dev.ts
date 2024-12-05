@@ -73,6 +73,11 @@ const config: HardhatUserConfig = {
             url: `https://sepolia.base.org`,
             accounts,
         },
+        zksync_sepolia: {
+            eid: EndpointId.ZKSYNCSEP_V2_TESTNET,
+            url: `https://sepolia.era.zksync.dev`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
