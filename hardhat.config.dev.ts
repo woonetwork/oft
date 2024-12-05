@@ -78,6 +78,11 @@ const config: HardhatUserConfig = {
             url: `https://sepolia.era.zksync.dev`,
             accounts,
         },
+        mantle_sepolia: {
+            eid: EndpointId.MANTLESEP_V2_TESTNET,
+            url: `https://rpc.sepolia.mantle.xyz`,
+            accounts,
+        },
     },
     namedAccounts: {
         deployer: {
