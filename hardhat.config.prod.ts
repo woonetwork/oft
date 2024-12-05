@@ -83,6 +83,11 @@ const config: HardhatUserConfig = {
             url: `https://mainnet.era.zksync.io`,
             accounts,
         },
+        mantle: {
+            eid: EndpointId.MANTLE_V2_MAINNET,
+            url: `https://rpc.mantle.xyz`,
+            accounts,
+        }
     },
     namedAccounts: {
         deployer: {
