@@ -139,50 +139,27 @@ const config: OAppOmniGraphHardhat = {
             from: ethereumContract,
             to: solanaContract,
             config: {
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: '0x173272739Bd7Aa6e4e214714048a9fE699453059',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x589dEDbD617e0CBcB916A9223F4d1300c294236b', // LayerZero
+                            '0x589dEDbD617e0CBcB916A9223F4d1300c294236b',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x589dEDbD617e0CBcB916A9223F4d1300c294236b', // LayerZero
+                            '0x589dEDbD617e0CBcB916A9223F4d1300c294236b',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -200,7 +177,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 2500000,
                     },
                     {
-                        // Solana options use (gas == compute units, value == lamports)
                         msgType: 2,
                         optionType: ExecutorOptionType.COMPOSE,
                         index: 0,
@@ -213,58 +189,33 @@ const config: OAppOmniGraphHardhat = {
         {
             from: solanaContract,
             to: ethereumContract,
-            // TODO Here are some default settings that have been found to work well sending to Sepolia. We suggest
-            //  performing additional profiling to ensure they are correct for your use case.
             config: {
                 sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                 receiveLibraryConfig: {
                     receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                     gracePeriod: BigInt(0),
                 },
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -286,50 +237,27 @@ const config: OAppOmniGraphHardhat = {
             from: lineaContract,
             to: solanaContract,
             config: {
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: '0x0408804C5dcD9796F22558464E6fE5bDdF16A7c7',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x129ee430cb2ff2708ccaddbdb408a88fe4ffd480', // LayerZero
+                            '0x129ee430cb2ff2708ccaddbdb408a88fe4ffd480',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x129ee430cb2ff2708ccaddbdb408a88fe4ffd480', // LayerZero
+                            '0x129ee430cb2ff2708ccaddbdb408a88fe4ffd480',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -347,7 +275,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 2500000,
                     },
                     {
-                        // Solana options use (gas == compute units, value == lamports)
                         msgType: 2,
                         optionType: ExecutorOptionType.COMPOSE,
                         index: 0,
@@ -360,58 +287,33 @@ const config: OAppOmniGraphHardhat = {
         {
             from: solanaContract,
             to: lineaContract,
-            // TODO Here are some default settings that have been found to work well sending to Sepolia. We suggest
-            //  performing additional profiling to ensure they are correct for your use case.
             config: {
                 sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                 receiveLibraryConfig: {
                     receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                     gracePeriod: BigInt(0),
                 },
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -593,50 +495,27 @@ const config: OAppOmniGraphHardhat = {
             from: baseContract,
             to: solanaContract,
             config: {
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: '0x2CCA08ae69E0C44b18a57Ab2A87644234dAebaE4',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x9e059a54699a285714207b43b055483e78faac25', // LayerZero
+                            '0x9e059a54699a285714207b43b055483e78faac25',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x9e059a54699a285714207b43b055483e78faac25', // LayerZero
+                            '0x9e059a54699a285714207b43b055483e78faac25',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -654,7 +533,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 2500000,
                     },
                     {
-                        // Solana options use (gas == compute units, value == lamports)
                         msgType: 2,
                         optionType: ExecutorOptionType.COMPOSE,
                         index: 0,
@@ -667,58 +545,33 @@ const config: OAppOmniGraphHardhat = {
         {
             from: solanaContract,
             to: baseContract,
-            // TODO Here are some default settings that have been found to work well sending to Sepolia. We suggest
-            //  performing additional profiling to ensure they are correct for your use case.
             config: {
                 sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                 receiveLibraryConfig: {
                     receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                     gracePeriod: BigInt(0),
                 },
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -980,50 +833,27 @@ const config: OAppOmniGraphHardhat = {
             from: zksyncContract,
             to: solanaContract,
             config: {
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: '0x664e390e672A811c12091db8426cBb7d68D5D8A6',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x620a9df73d2f1015ea75aea1067227f9013f5c51', // LayerZero
+                            '0x620a9df73d2f1015ea75aea1067227f9013f5c51',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x620a9df73d2f1015ea75aea1067227f9013f5c51', // LayerZero
+                            '0x620a9df73d2f1015ea75aea1067227f9013f5c51',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -1041,7 +871,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 2500000,
                     },
                     {
-                        // Solana options use (gas == compute units, value == lamports)
                         msgType: 2,
                         optionType: ExecutorOptionType.COMPOSE,
                         index: 0,
@@ -1054,58 +883,33 @@ const config: OAppOmniGraphHardhat = {
         {
             from: solanaContract,
             to: zksyncContract,
-            // TODO Here are some default settings that have been found to work well sending to Sepolia. We suggest
-            //  performing additional profiling to ensure they are correct for your use case.
             config: {
                 sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                 receiveLibraryConfig: {
                     receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                     gracePeriod: BigInt(0),
                 },
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -1447,50 +1251,27 @@ const config: OAppOmniGraphHardhat = {
             from: mantleContract,
             to: solanaContract,
             config: {
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: '0x4Fc3f4A38Acd6E4cC0ccBc04B3Dd1CCAeFd7F3Cd',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x28b6140ead70cb2fb669705b3598ffb4beaa060b', // LayerZero
+                            '0x28b6140ead70cb2fb669705b3598ffb4beaa060b',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '0x28b6140ead70cb2fb669705b3598ffb4beaa060b', // LayerZero
+                            '0x28b6140ead70cb2fb669705b3598ffb4beaa060b',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
@@ -1508,7 +1289,6 @@ const config: OAppOmniGraphHardhat = {
                         value: 2500000,
                     },
                     {
-                        // Solana options use (gas == compute units, value == lamports)
                         msgType: 2,
                         optionType: ExecutorOptionType.COMPOSE,
                         index: 0,
@@ -1521,58 +1301,33 @@ const config: OAppOmniGraphHardhat = {
         {
             from: solanaContract,
             to: mantleContract,
-            // TODO Here are some default settings that have been found to work well sending to Sepolia. We suggest
-            //  performing additional profiling to ensure they are correct for your use case.
             config: {
                 sendLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                 receiveLibraryConfig: {
                     receiveLibrary: '7a4WjyR8VZ7yZz5XJAKm39BUGn5iT9CKcv2pmG9tdXVH',
                     gracePeriod: BigInt(0),
                 },
-                // Optional Receive Library Timeout for when the Old Receive Library Address will no longer be valid
-                // Note:  This configuring `receiveLibraryTimeoutConfig` using devtools is not currently available for Solana.
-                // receiveLibraryTimeoutConfig: {
-                //     lib: '0x0000000000000000000000000000000000000000',
-                //     expiry: BigInt(0),
-                // },
-                // Optional Send Configuration
-                // @dev Controls how the `from` chain sends messages to the `to` chain.
                 sendConfig: {
                     executorConfig: {
                         maxMessageSize: 10000,
-                        // The configured Executor address.  Note, this is the executor PDA not the program ID.
                         executor: 'AwrbHeCyniXaQhiJZkLhgWdUCteeWSGaSN1sTfLiY7xK',
                     },
                     ulnConfig: {
-                        // // The number of block confirmations to wait on BSC before emitting the message from the source chain.
                         confirmations: BigInt(32),
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
-                // Optional Receive Configuration
-                // @dev Controls how the `from` chain receives messages from the `to` chain.
                 receiveConfig: {
                     ulnConfig: {
-                        // The number of block confirmations to expect from the `to` chain.
                         confirmations: BigInt(15),
-                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain ).
-                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
                         requiredDVNs: [
-                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb', // LayerZero
+                            '4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb',
                         ],
-                        // The address of the DVNs you will pay to verify a sent message on the source chain ).
-                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
                         optionalDVNs: [],
-                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
                         optionalDVNThreshold: 0,
                     },
                 },
